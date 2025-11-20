@@ -1,0 +1,1 @@
+README for python_variable_annotations dir.
