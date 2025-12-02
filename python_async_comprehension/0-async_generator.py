@@ -15,4 +15,4 @@ async def async_generator() -> typing.Generator[float, NoneType, NoneType]:
     """
     for i in range(10):
         await asyncio.sleep(1)
-        yield random.randint(0, 10)
+        yield random.random(0, 10)
