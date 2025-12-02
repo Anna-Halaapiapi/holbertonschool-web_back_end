@@ -8,11 +8,11 @@ import random
 import typing
 
 
-async def async_generator() -> typing.Generator[float, NoneType, NoneType]:
+async def async_generator() -> typing.Generator[float, None, None]:
     """
     for each loop, waits 1 second then yields a random number.
     repeats loop 10 times.
     """
     for i in range(10):
         await asyncio.sleep(1)
-        yield random.random(0, 10)
+        yield random.uniform(0, 10)
