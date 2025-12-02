@@ -3,7 +3,7 @@
 this module provides the measure_runtime function.
 """
 
-import asyncio
+from asyncio import gather
 import typing
 import time
 async_comprehension = __import__('1-async_comprehension').async_comprehension
@@ -18,7 +18,7 @@ async def measure_runtime() -> float:
     start_time = time.time()  # get current time in seconds
 
     # code to be measured
-    await asyncio.gather(
+    await gather(
         async_comprehension(),
         async_comprehension(),
         async_comprehension(),
