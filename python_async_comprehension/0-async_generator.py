@@ -5,9 +5,10 @@ this module provides the async_generator function.
 
 import asyncio
 import random
+import typing
 
 
-async def async_generator():
+async def async_generator() -> typing.Generator[float, NoneType, NoneType]:
     """
     for each loop, waits 1 second then yields a random number.
     repeats loop 10 times.
