@@ -40,24 +40,24 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            """
-            gets page from dataset
-            """
-            # verifies that both args are ints greater than 0
-            assert isinstance(page , int), "page must be an integer"
-            assert isinstance(page_size, int), "page_size must be an integer"
-            assert page > 0 and page_size > 0, "page and page size must be greater than 0"
+        """
+        gets page from dataset
+        """
+        # verifies that both args are ints greater than 0
+        assert isinstance(page, int)
+        assert isinstance(page_size, int)
+        assert page > 0 and page_size > 0
 
-            # get data from csv (without header)
-            data = self.dataset()
+        # get data from csv (without header)
+        data = self.dataset()
 
-            # get indexes for pagination of dataset
-            indexes = index_range(page, page_size)  # tuple with start and end indexes of required rows
+        # get start & end indexes for pagination of dataset
+        indexes = index_range(page, page_size)
 
-            # return empty list if start index is out of bounds, else return rows
-            if indexes[0] >= len(data):
-                page = []
-            else:
-                page = data[indexes[0]:indexes[1]]
+        # return empty list if start index is out of bounds, else return rows
+        if indexes[0] >= len(data):
+            page = []
+        else:
+            page = data[indexes[0]:indexes[1]]
 
-            return page
+        return page
