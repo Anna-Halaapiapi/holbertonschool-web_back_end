@@ -6,6 +6,6 @@ This module provides the schools_by_topic function.
 
 def schools_by_topic(mongo_collection: object, topic: str):
     """
-    returns the list of school (docs) having a specific topic
+    returns the list of school (docs) having a specific topic (field in doc)
     """
-    return list(mongo_collection.find({ "topics": topic }))
+    return list(mongo_collection.find({"topics": topic}))
