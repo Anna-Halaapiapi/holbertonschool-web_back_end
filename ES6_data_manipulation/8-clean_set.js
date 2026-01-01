@@ -1,7 +1,7 @@
 // returns string of all set values that start with startString
 export default function cleanSet (set, startString) {
-  // condition 1: startString empty or not provided
-  if (startString === '' || startString === undefined) {
+  // condition 1: startString empty or not provided or not a string
+  if (startString === '' || startString === undefined || typeof(startString) !== 'string') {
     return ''; // return empty string
   }
   // condition 2: startString provided
