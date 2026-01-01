@@ -1,0 +1,1 @@
+readme for ES6_promise directory.
