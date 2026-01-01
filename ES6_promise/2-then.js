@@ -2,7 +2,7 @@ export default function handleResponseFromAPI(promise) {
   // uses three handlers to handle promise
     return promise
       .then(() => { // handles resolved promise
-        return {status: 200, body: 'Success'};
+        return {status: 200, body: 'success'};
       })
       .catch(error => { // handles rejected promise
         return Error();
