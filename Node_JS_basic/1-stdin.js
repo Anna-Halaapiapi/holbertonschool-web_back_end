@@ -8,7 +8,7 @@ process.stdin.on('data', (chunk) => {
   name += chunk;
   // if name was typed in interactive mode - print name
   if (process.stdin.isTTY) {
-    console.log(`Your name is: ${name.trim()}`)
+    console.log(`Your name is: ${name.trim()}`);
   }
 });
 
@@ -16,7 +16,7 @@ process.stdin.on('data', (chunk) => {
 process.stdin.on('end', () => {
   if (!process.stdin.isTTY) {
     // if name was piped - print name here with exit message
-    console.log(`Your name is: ${name.trim()}`)
+    console.log(`Your name is: ${name.trim()}`);
     console.log('This important software is now closing');
   }
 });
