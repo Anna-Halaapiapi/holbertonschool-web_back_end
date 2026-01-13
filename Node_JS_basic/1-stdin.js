@@ -7,17 +7,13 @@ console.log('Welcome to Holberton School, what is your name?');
 let name = '';
 process.stdin.on('data', (chunk) => {
   name += chunk;
-  // 3. if typed name - process here
-  if (process.stdin.isTTY) {
-    console.log(`Your name is: ${name}`);
-  }
 });
 
-// 4. print exit message when program ends (user exits manually or pipe finishes)
+// 3. print name upon user manually exiting program of end of pipe reached
 process.stdin.on('end', () => {
-  // if piped name - process here
+  console.log(`Your name is: ${name}`)
+  // 4. if piped name - also print the exit msg
   if (!process.stdin.isTTY) {
-    console.log(`Your name is: ${name}`);
+    console.log('This important software is now closing');
   }
-  console.log('This important software is now closing');
 });
