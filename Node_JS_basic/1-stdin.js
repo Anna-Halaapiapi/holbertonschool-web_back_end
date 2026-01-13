@@ -1,5 +1,4 @@
 // node program that interacts with CLI
-
 // 1. displays welcom message
 console.log('Welcome to Holberton School, what is your name?');
 
@@ -7,13 +6,17 @@ console.log('Welcome to Holberton School, what is your name?');
 let name = '';
 process.stdin.on('data', (chunk) => {
   name += chunk;
+  // if name was typed in interactive mode - print name
+  if (process.stdin.isTTY) {
+    console.log(`Your name is: ${name.trim()}`)
+  }
 });
 
-// 3. print name upon user manually exiting program of end of pipe reached
+// 3. handle EOF or end of pipe reached
 process.stdin.on('end', () => {
-  console.log(`Your name is: ${name}`)
-  // 4. if piped name - also print the exit msg
   if (!process.stdin.isTTY) {
+    // if name was piped - print name here with exit message
+    console.log(`Your name is: ${name.trim()}`)
     console.log('This important software is now closing');
   }
 });
